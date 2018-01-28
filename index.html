@@ -32,6 +32,8 @@ $(function(){
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
+	    
+	starImg.setAttribute('crossOrigin', 'anonymous');
         starImg.src='./prize.jpg';
 
         starImg.onload=function(){
