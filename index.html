@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
@@ -32,7 +32,6 @@ $(function(){
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
-starImg.setAttribute('crossOrigin', 'anonymous')
         starImg.src='./prize.jpg';
 
         starImg.onload=function(){
@@ -52,15 +51,13 @@ starImg.setAttribute('crossOrigin', 'anonymous')
                 mainCtx.fillText(mydate.getMonth()+1,448,385);
                 mainCtx.fillText(mydate.getDate(),490,385);
             }
-
         };
-
     }
     $('#save').on('click',function(){
 	hechen();
 
         var mycanvas = document.getElementById("main");
-        var image = mycanvas.toDataURL();
+        var image = mycanvas.toDataURL('image/png');
 alert('123')
 //$('#starImg').attr('src',image)
         var w=window.open('about:blank','image from canvas');
