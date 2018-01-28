@@ -53,16 +53,17 @@ $(function(){
                 mainCtx.fillText(mydate.getFullYear(),358,385);
                 mainCtx.fillText(mydate.getMonth()+1,448,385);
                 mainCtx.fillText(mydate.getDate(),490,385);
-		    alert(document.getElementById('main').toDataURL('image/png'))
 		$('#starImg').attr('src',document.getElementById('main').toDataURL('image/png'));
+		var w=window.open('about:blank','image from canvas');
+		w.document.write("<img src='"+document.getElementById('main').toDataURL('image/png')+"' alt='from canvas'/>");
             }
         };
     }
     $('#save').on('click',function(){
 	hechen();
-	var mainContext = document.getElementById('main');
-        var image = mainContext.toDataURL('image/png');
-alert(image)
+// 	var mainContext = document.getElementById('main');
+//         var image = mainContext.toDataURL('image/png');
+// alert(image)
 //$('#starImg').attr('src',image)
 //         var w=window.open('about:blank','image from canvas');
 //         w.document.write("<img src='"+image+"' alt='from canvas'/>");
