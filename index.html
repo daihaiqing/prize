@@ -10,10 +10,6 @@
     </style>
 </head>
 <body>
-
-    <div>
-        <img id="starImg" height="450" width="668" src="./prize.jpg" />
-    </div>
     <canvas id="main" height="450" width="668" style="border:1px solid #d3d3d3;"></canvas>
     <div id="message">
 	<p>姓名：<input type="text" id="name" value="" /></p>
@@ -53,20 +49,14 @@ $(function(){
                 mainCtx.fillText(mydate.getFullYear(),358,385);
                 mainCtx.fillText(mydate.getMonth()+1,448,385);
                 mainCtx.fillText(mydate.getDate(),490,385);
-		$('#starImg').attr('src',document.getElementById('main').toDataURL('image/png'));
-		var w=window.open('about:blank','image from canvas');
-		w.document.write("<img src='"+document.getElementById('main').toDataURL('image/png')+"' alt='from canvas'/>");
+		//$('#starImg').attr('src',document.getElementById('main').toDataURL('image/png'));
+		//var w=window.open('about:blank','image from canvas');
+		//w.document.write("<img src='"+document.getElementById('main').toDataURL('image/png')+"' alt='from canvas'/>");
             }
         };
     }
     $('#save').on('click',function(){
 	hechen();
-// 	var mainContext = document.getElementById('main');
-//         var image = mainContext.toDataURL('image/png');
-// alert(image)
-//$('#starImg').attr('src',image)
-//         var w=window.open('about:blank','image from canvas');
-//         w.document.write("<img src='"+image+"' alt='from canvas'/>");
     });
 
 hechen();
