@@ -56,13 +56,6 @@ starImg.setAttribute('crossOrigin', 'anonymous')
         };
 
     }
-
-    function saveAsLocalImage(){
-        var myCanvas = document.getElementById("main");
-        var image = myCanvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream");
-        window.location.href=image;
-    }
-
     $('#save').on('click',function(){
 	hechen();
 
@@ -70,8 +63,8 @@ starImg.setAttribute('crossOrigin', 'anonymous')
         var dataURL = mycanvas.toDataURL();
 
 //$('#starImg').attr('src',image)
-        //var w=window.open('about:blank','image from canvas');
-        //w.document.write("<img src='"+image+"' alt='from canvas'/>");
+        var w=window.open('about:blank','image from canvas');
+        w.document.write("<img src='"+image+"' alt='from canvas'/>");
     });
 
 hechen();
