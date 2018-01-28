@@ -1,1 +1,82 @@
-<h1>hello world</h1>
+﻿<html>
+<head>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <script src="./jquery.js"></script>
+    <style>
+	#message,#main{
+	    display:inline-block;        
+	}
+    </style>
+</head>
+<body>
+
+    <div>
+        <img id="starImg" height="450" width="668" src="./prize.jpg" />
+    </div>
+    <canvas id="main" height="450" width="668" style="border:1px solid #d3d3d3;"></canvas>
+    <div id="message">
+	<p>姓名：<input type="text" id="name" value="" /></p>
+	<p>表现：<input type="text" id="present" value="" /></p>
+	<p>年级：<input type="text" id="level" value="" /></p>
+	<p>班级：<input type="text" id="class" value="" /></p>
+    </div>
+    <button id="save">确认生成</button>
+
+<script>
+$(function(){
+    function hechen(){
+        var mydate = new Date();
+        var mainCtx = document.getElementById('main').getContext("2d");
+        mainCtx.clearRect(0,0,1000,1000);
+        //因为没法直接读取本地图片 所以做了这部操作
+
+        var starImg = new Image();
+starImg.setAttribute('crossOrigin', 'anonymous')
+        starImg.src='./prize.jpg';
+
+        starImg.onload=function(){
+            //先把图片绘制在这里
+            mainCtx.drawImage(starImg,0,0,668,450);
+            //读取用户的文本
+            if($('#name').val()){
+                mainCtx.font = "small-caps bold 18px STXinwei";
+                //设置用户文本填充颜色
+                mainCtx.fillStyle = "black";
+                //从坐标点(50,50)开始绘制文字
+                mainCtx.fillText($('#name').val(),108,253);
+                mainCtx.fillText($('#present').val(),248,253);
+                mainCtx.fillText($('#level').val(),428,345);
+                mainCtx.fillText($('#class').val(),498,345);
+                mainCtx.fillText(mydate.getFullYear(),358,385);
+                mainCtx.fillText(mydate.getMonth()+1,448,385);
+                mainCtx.fillText(mydate.getDate(),490,385);
+            }
+
+        };
+
+    }
+
+    function saveAsLocalImage(){
+        var myCanvas = document.getElementById("main");
+        var image = myCanvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream");
+        window.location.href=image;
+    }
+
+    $('#save').on('click',function(){
+	hechen();
+
+        var mycanvas = document.getElementById("main");
+        var dataURL = mycanvas.toDataURL();
+
+//$('#starImg').attr('src',image)
+        //var w=window.open('about:blank','image from canvas');
+        //w.document.write("<img src='"+image+"' alt='from canvas'/>");
+    });
+
+hechen();
+});
+</script>
+
+</body>
+</html>
