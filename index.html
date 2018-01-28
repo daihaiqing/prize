@@ -60,8 +60,8 @@ starImg.setAttribute('crossOrigin', 'anonymous')
 	hechen();
 
         var mycanvas = document.getElementById("main");
-        var dataURL = mycanvas.toDataURL();
-
+        var image = mycanvas.toDataURL();
+alert(image)
 //$('#starImg').attr('src',image)
         var w=window.open('about:blank','image from canvas');
         w.document.write("<img src='"+image+"' alt='from canvas'/>");
