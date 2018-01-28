@@ -58,11 +58,12 @@ $(function(){
     }
     $('#save').on('click',function(){
 	hechen();
-        var image = main.toDataURL('image/png');
-alert('123')
-//$('#starImg').attr('src',image)
-        var w=window.open('about:blank','image from canvas');
-        w.document.write("<img src='"+image+"' alt='from canvas'/>");
+	var mainContext = document.getElementById('main');
+        var image = mainContext.toDataURL('image/png');
+alert(mainContext)
+$('#starImg').attr('src',image)
+//         var w=window.open('about:blank','image from canvas');
+//         w.document.write("<img src='"+image+"' alt='from canvas'/>");
     });
 
 hechen();
