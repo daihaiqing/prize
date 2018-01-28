@@ -27,7 +27,8 @@
 $(function(){
     function hechen(){
         var mydate = new Date();
-        var mainCtx = document.getElementById('main').getContext("2d");
+        var main = document.getElementById('main');
+	var mainCtx = main.getContext("2d");
         mainCtx.clearRect(0,0,1000,1000);
         //因为没法直接读取本地图片 所以做了这部操作
 
@@ -57,9 +58,7 @@ $(function(){
     }
     $('#save').on('click',function(){
 	hechen();
-
-        var mycanvas = document.getElementById("main");
-        var image = mycanvas.toDataURL('image/png');
+        var image = main.toDataURL('image/png');
 alert('123')
 //$('#starImg').attr('src',image)
         var w=window.open('about:blank','image from canvas');
